@@ -1,0 +1,37 @@
+# Конфигурационный файл сервера SuccessApp 2018-B                 
+=======
+# Конфигурационный файл сервера SuccessApp 2018-B                 
+>>>>>>> 8977e0c0b190984ff6bd0e3ed611b2ac4b19a60f
+# Следующая серия строк задает: 
+# ip сервера SQL, имя пользователя, пароль, порт, название БД
+#
+192.168.7.10
+bill_grisha
+hardpass2
+3306
+bill
+# Следующая строка  
+# задает номер
+# порта TCP
+# для прослушивания.
+4242
+# Следующие строки задают соответствия, 
+# SQL-запрос = команда, поступающая с TCP порта.
+# Команды, начинающиеся с 'get'....!, ЗАПРАШИВАЮТ данные. 	
+# Команды, начинающиеся с 'set'....:, ОТДАЮТ данные в запрос.
+# У команд типа 'set', после знака ':' (вконце) следуют данные 
+# для передачи в запрос. Пример: setNextPaket:next_paket = 7 
+# - сервер подставит значение (все, что идет после ":")'next_paket = 7' в SQL запрос типа INSERT или UPDATE, 
+# когда получит от клиентской части сообщение вида "setNextPaket:next_paket = 7".
+# Кординальное число типа "WHERE id = 14242" подставляется автоматически, в зависимости от 
+# какого клиента пришел запрос. Начало 'ask' - если кординальное число не 'id' и не 'name'.
+#
+getAllData!SELECT id, balance, state, pay_day, paket FROM users WHERE
+showPlan:SELECT name FROM plans2 WHERE
+setAuth:UPDATE users SET auth WHERE
+<<<<<<< HEAD
+askPayments!SELECT time, cash, coment FROM pays WHERE type IN (10, 50, 20, 21, 22) AND mid=
+=======
+askPayments!SELECT * FROM pays WHERE type IN (10,20,21,22) AND mid=
+>>>>>>> 8977e0c0b190984ff6bd0e3ed611b2ac4b19a60f
+end
